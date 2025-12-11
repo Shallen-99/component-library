@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { AlertBox } from "./components/AlertBox/AlertBox";
+import { UserProfileCard } from "./components/UserProfileCard/UserProfileCard";
+import { ProductDisplay } from "./components/ProductDisplay/ProductDisplay";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div style={{ padding: 20 }}>
+      
+      <AlertBox type="success" message="Operation successful!">
+        <em>This is additional detail inside the alert.</em>
+      </AlertBox>
 
-export default App
+      <UserProfileCard
+        user={{
+          id: "1",
+          name: "John Doe",
+          email: "john@example.com",
+          role: "Developer",
+        }}
+        onEdit={(id) => console.log("Editing", id)}
+      >
+        <p>Custom child content under profile card.</p>
+      </UserProfileCard>
+
+      <ProductDisplay
+        product={{
+          id: "prod123",
+          name: "Bluetooth Speaker",
+          price: 49.99,
+          description: "High-quality portable speaker.",
+          inStock: true
+        }}
+        onAddToCart={(id) => console.log("Add to cart", id)}
+      >
+        <button>Extra Action</button>
+      </ProductDisplay>
+    </div>
+  );
+}
