@@ -1,0 +1,8 @@
+How did you handle optional props in your components?
+1. By using the conditional operator ?:
+What considerations did you make when designing the component interfaces?
+2.I tried to replicate the examples the lab gave us as closely as possible
+How did you ensure type safety across your components?
+3.By using correct typescript syntax since the main purpose of it is type safety
+What challenges did you face when implementing component composition?
+4.I was confused at the beggining of the lab because I imported the them in the wrong file
